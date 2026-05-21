@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://peermetrics.io/</loc>
+  </url>
+  <url>
+    <loc>https://peermetrics.io/integrations/livekit.html</loc>
+  </url>
+  <url>
+    <loc>https://peermetrics.io/integrations/mediasoup.html</loc>
+  </url>
+  <url>
+    <loc>https://peermetrics.io/integrations/janus.html</loc>
+  </url>
+  <url>
+    <loc>https://peermetrics.io/integrations/vonage.html</loc>
+  </url>
+  <url>
+    <loc>https://peermetrics.io/integrations/agora.html</loc>
+  </url>
+  <url>
+    <loc>https://peermetrics.io/integrations/pion.html</loc>
+  </url>
+  <url>
+    <loc>https://peermetrics.io/integrations/jitsi.html</loc>
+  </url>
+</urlset>
