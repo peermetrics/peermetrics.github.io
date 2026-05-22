@@ -7,11 +7,11 @@
     <title>Peermetrics | Open-Source WebRTC Monitoring and Call Quality Analytics</title>
     <meta
       name="description"
-      content="Self-hosted WebRTC monitoring for real-time communication apps. Track call quality, inspect packet loss and jitter, troubleshoot session failures, and deploy open-source analytics your team controls."
+      content="Self-hosted WebRTC monitoring for real-time communication apps. Inspect call quality, packet loss, jitter, and session failures with open-source analytics your team controls."
     />
     <link rel="canonical" href="https://peermetrics.io/" />
     <meta name="google" content="notranslate" />
-    <meta property="og:site_name" content="Peermetrics" />
+    <meta property="og:site_name" content="peermetrics.io" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://peermetrics.io/" />
     <meta property="og:title" content="Peermetrics | Open-Source WebRTC Monitoring and Call Quality Analytics" />
@@ -19,15 +19,13 @@
       property="og:description"
       content="Monitor WebRTC call quality, debug real session issues, and self-host analytics for LiveKit, Janus, Mediasoup, Agora, Jitsi, Pion, and more."
     />
-    <meta property="og:image" content="https://peermetrics.io/og-preview.png" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:url" content="https://peermetrics.io/" />
     <meta name="twitter:title" content="Peermetrics | Open-Source WebRTC Monitoring and Call Quality Analytics" />
     <meta
       name="twitter:description"
       content="Self-hosted WebRTC monitoring for real-time communication apps. Track call quality, packet loss, jitter, and troubleshooting workflows."
     />
-    <meta name="twitter:image" content="https://peermetrics.io/og-preview.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicon/apple-touch-icon.png" />
     <link rel="mask-icon" href="/static/img/favicon/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-config" content="/static/img/favicon/browserconfig.xml" />
@@ -48,17 +46,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8G5EJHB7R"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-S8G5EJHB7R', {
         anonymize_ip: true
       });
-
-      window.trackEvent = function trackEvent(name, params) {
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', name, params || {});
-        }
-      };
     </script>
     <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
   </head>
@@ -68,22 +60,32 @@
         <div class="container">
           <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="/">
-              <img class="logo logo-sm" alt="Peermetrics logo" src="/static/img/logo.png" />
+              <img class="logo logo-sm" alt="Peer metrics logo" src="/static/img/logo.png" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <i class="icon-menu h4"></i>
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
               <ul class="navbar-nav">
-                <li class="nav-item"><a href="#platform" class="nav-link">Platform</a></li>
-                <li class="nav-item"><a href="#how-it-works" class="nav-link">How it works</a></li>
-                <li class="nav-item"><a href="#integrations" class="nav-link">Integrations</a></li>
-                <li class="nav-item"><a href="#open-source" class="nav-link">Open source</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item dropdown">
+                  <a href="javascript:void(0)" class="nav-link dropdown-toggle" id="integrationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Integrations</a>
+                  <div class="dropdown-menu" aria-labelledby="integrationsDropdown">
+                    <a class="dropdown-item" href="/integrations/livekit.html">LiveKit</a>
+                    <a class="dropdown-item" href="/integrations/mediasoup.html">Mediasoup</a>
+                    <a class="dropdown-item" href="/integrations/janus.html">Janus</a>
+                    <a class="dropdown-item" href="/integrations/vonage.html">Vonage</a>
+                    <a class="dropdown-item" href="/integrations/agora.html">Agora</a>
+                    <a class="dropdown-item" href="/integrations/pion.html">Pion</a>
+                    <a class="dropdown-item" href="/integrations/jitsi.html">Jitsi</a>
+                  </div>
+                </li>
                 <li class="nav-item"><a href="#managed-services" class="nav-link">Managed Services</a></li>
                 <li class="nav-item"><a href="https://github.com/peermetrics/peermetrics" class="nav-link" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+                <li class="nav-item"><a href="https://www.youtube.com/watch?v=VdgfarYkdGQ&t=15s" class="nav-link demo-btn" target="_blank" rel="noopener noreferrer">See how it works</a></li>
               </ul>
               <ul class="navbar-nav">
-                <li class="nav-item"><a href="#contact" class="nav-link demo-btn">Talk to us</a></li>
+                <li class="nav-item"><a href="#contact">Need Help?</a></li>
               </ul>
             </div>
           </nav>
@@ -92,157 +94,35 @@
     </header>
 
     <main class="main-container">
-      <section class="space-lg bg-white hero-section" data-section="hero">
+      <section class="space-lg bg-white hero-section">
         <div class="container">
           <div class="row align-items-center justify-content-around">
             <div class="col-12 col-md-6 col-lg-5 text-center text-md-left section-intro hero-copy">
-              <span class="title-decorative">Self-hosted WebRTC monitoring</span>
               <h1 class="display-3">Open-source WebRTC monitoring for real-time communication apps</h1>
               <span class="lead">
-                Monitor call quality, inspect packet loss and jitter, and troubleshoot real session failures with analytics built for WebRTC teams.
+                Monitor call quality, inspect packet loss and jitter, and troubleshoot real session failures with a self-hosted analytics stack.
               </span>
-              <p class="hero-support-copy">
-                Instrument quickly, give support and engineering the same facts, and keep control of your data with a self-hosted stack.
-              </p>
               <div class="mt-3 d-flex flex-column flex-sm-row flex-md-column align-items-center align-items-md-start">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://github.com/peermetrics/peermetrics"
-                  class="btn btn-success btn-lg mb-2 mb-sm-0 mr-sm-2 mr-md-0"
-                  data-analytics-event="cta_click"
-                  data-analytics-name="hero_get_started"
-                  data-analytics-location="hero"
-                >
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/peermetrics/peermetrics" class="btn btn-success btn-lg mb-2 mb-sm-0 mr-sm-2 mr-md-0">
                   Get started on GitHub
                 </a>
-                <a
-                  href="#contact"
-                  class="btn btn-outline-primary btn-lg mt-md-2"
-                  data-analytics-event="cta_click"
-                  data-analytics-name="hero_talk_to_us"
-                  data-analytics-location="hero"
-                >
+                <a href="#contact" class="btn btn-outline-primary btn-lg mt-md-2">
                   Talk to us about managed hosting
                 </a>
               </div>
-              <div class="hero-proof-list mt-4">
-                <span class="signal-pill">Self-hosted and open source</span>
-                <span class="signal-pill">__NPM_WEEKLY_DOWNLOADS__ npm downloads last week for @peermetrics/webrtc-stats</span>
-                <span class="signal-pill">Built for LiveKit, Janus, Mediasoup, Agora, Jitsi, Pion, and more</span>
-              </div>
             </div>
             <div class="col-12 col-md-6 col-lg-6 hero-image-wrap">
-              <img alt="Peermetrics dashboard screenshot" class="img-fluid w-100 rounded shadow-lg" src="/static/img/teaser.png" />
+              <img alt="Peer Metrics homepage hero" class="img-fluid w-100" src="/static/img/homepage/main.jpg" />
             </div>
           </div>
         </div>
       </section>
 
-      <section class="bg-white pt-0" id="platform" data-section="platform">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12 col-lg-11">
-              <div class="section-panel">
-                <div class="row">
-                  <div class="col-12 col-md-4">
-                    <div class="metric-card">
-                      <h2 class="h4">Understand call quality fast</h2>
-                      <p class="mb-0">See packet loss, jitter, bitrate changes, and session-level issues without guessing what went wrong.</p>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <div class="metric-card">
-                      <h2 class="h4">Give support and engineering shared evidence</h2>
-                      <p class="mb-0">Use the same event trail and session context to debug user complaints and prioritize fixes.</p>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <div class="metric-card">
-                      <h2 class="h4">Keep analytics in your control</h2>
-                      <p class="mb-0">Deploy a self-hosted stack for teams that need operational visibility without sending sensitive call data to a third-party SaaS.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="how-it-works" class="bg-white" data-section="how_it_works">
-        <div class="container">
-          <div class="row justify-content-center text-center section-intro">
-            <div class="col-12 col-md-9 col-lg-8">
-              <span class="title-decorative">How it works</span>
-              <h2 class="display-4">Instrument, monitor, troubleshoot</h2>
-              <span class="lead">
-                Peermetrics gives teams a clean workflow from stats collection to issue investigation.
-              </span>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-4">
-              <div class="metric-card h-100">
-                <span class="eyebrow">Step 1</span>
-                <h3 class="h4">Connect your app</h3>
-                <p>
-                  Add the SDK or use <code>@peermetrics/webrtc-stats</code> to capture WebRTC telemetry from your real-time application.
-                </p>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="metric-card h-100">
-                <span class="eyebrow">Step 2</span>
-                <h3 class="h4">Monitor every session</h3>
-                <p>
-                  Track call quality indicators, browser and device context, and the events that explain why user experience changed.
-                </p>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="metric-card h-100">
-                <span class="eyebrow">Step 3</span>
-                <h3 class="h4">Resolve issues faster</h3>
-                <p>
-                  Move from a vague complaint to specific troubleshooting data around packet loss, jitter, connection states, and peer behavior.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-white" data-section="quality_signals">
-        <div class="container">
-          <div class="row justify-content-around align-items-center">
-            <div class="col-12 col-md-6 col-lg-5">
-              <img alt="Peermetrics monitoring demo" src="/static/img/demo/stars.jpg" class="img-fluid rounded shadow-lg" />
-            </div>
-            <div class="col-12 col-md-6 col-lg-5">
-              <span class="title-decorative">What you can monitor</span>
-              <h2 class="display-5">Monitor the metrics that break real calls</h2>
-              <p class="lead text-md-left">
-                Peermetrics is designed for teams diagnosing live audio and video issues, not just collecting generic analytics.
-              </p>
-              <ul class="signal-list">
-                <li>Packet loss, jitter, bitrate, and round-trip time</li>
-                <li>Connection failures, device context, and browser behavior</li>
-                <li>Session-level debugging for support, engineering, and operations</li>
-                <li>Analytics across self-hosted deployments and custom integrations</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="integrations" class="space-lg bg-white" data-section="integrations">
+      <section id="integrations" class="space-lg bg-white">
         <div class="container">
           <div class="row justify-content-center text-center section-intro">
             <div class="col">
-              <span class="title-decorative">Integrations</span>
-              <h2 class="display-5">Integrate with the WebRTC platforms your team already uses</h2>
-              <span class="lead">Bring monitoring and troubleshooting into LiveKit, Mediasoup, Janus, Vonage, Agora, Pion, Jitsi, and adjacent WebRTC stacks.</span>
+              <h2 class="display-5">Integrate with your favorite WebRTC SDK</h2>
               <div class="row integrations mt-5 justify-content-center text-center">
                 <div class="col-6 col-md-3 col-lg"><img class="livekit-logo" src="/static/img/homepage/sdk/livekit-replacement.png" alt="LiveKit" /></div>
                 <div class="col-6 col-md-3 col-lg"><img src="/static/img/homepage/sdk/mediasoup.png" alt="Mediasoup" /></div>
@@ -257,66 +137,121 @@
         </div>
       </section>
 
-      <section id="open-source" class="bg-white" data-section="open_source">
+      <section id="how-it-works" class="bg-white">
+        <div class="container">
+          <div class="row justify-content-center text-center section-intro">
+            <div class="col-12 col-md-9 col-lg-8">
+              <h2 class="display-4">Create rock solid products</h2>
+              <span class="lead">
+                Give engineering and support the data they need to understand what happened in every call.
+              </span>
+            </div>
+          </div>
+          <ul class="feature-list feature-list-lg">
+            <li class="row justify-content-around align-items-center">
+              <div class="col-12 col-md-6 col-lg-5">
+                <img alt="Guess work in product" src="/static/img/homepage/product.jpg" class="img-fluid rounded" />
+              </div>
+              <div class="col-12 col-md-6 col-lg-5">
+                <h5>Don't leave your development to guess work</h5>
+                <p>
+                  Building real-time products is already difficult. WebRTC adds network, device, and browser behavior that is hard to reason about from user reports alone.
+                </p>
+                <p>
+                  Give your team the session-level evidence they need to improve call quality and resolve issues faster.
+                </p>
+              </div>
+            </li>
+            <li class="row justify-content-around align-items-center">
+              <div class="col-12 col-md-6 col-lg-5 order-lg-2">
+                <img alt="Developer relaxing" src="/static/img/homepage/relax.jpg" class="img-fluid rounded" />
+              </div>
+              <div class="col-12 col-md-6 col-lg-5 order-lg-1">
+                <h5>Fix problems before they appear</h5>
+                <p>
+                  Network conditions, devices, and client behavior change constantly. Monitor the patterns that degrade calls before they become recurring support problems.
+                </p>
+              </div>
+            </li>
+            <li class="row justify-content-around align-items-center">
+              <div class="col-12 col-md-6 col-lg-5">
+                <img alt="Happy support team" src="/static/img/homepage/support.jpg" class="img-fluid rounded" />
+              </div>
+              <div class="col-12 col-md-6 col-lg-5">
+                <h5>Make sure your support team shines</h5>
+                <p>
+                  Your support team should not have to guess what happened. Share the same call diagnostics across support, engineering, and operations.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="open-source" class="bg-white">
         <div class="container">
           <div class="row justify-content-around align-items-center">
-            <div class="col-12 col-lg-5">
-              <span class="title-decorative">Open-source wedge</span>
-              <h2 class="display-4">Start with <code>@peermetrics/webrtc-stats</code>, grow into full monitoring</h2>
+            <div class="col-12 col-lg-6">
+              <span class="title-decorative">Open source</span>
+              <h2 class="display-5">Start with the libraries, grow into the full platform</h2>
               <p class="lead text-md-left">
-                Use the open-source library to collect and parse WebRTC stats, then layer Peermetrics on top for session analytics, troubleshooting, and operational visibility.
+                Peermetrics includes lightweight OSS entry points for instrumentation and a full self-hosted stack for ingestion and dashboards.
               </p>
-              <p class="stats-highlight">
-                Verified traction: <strong>__NPM_WEEKLY_DOWNLOADS__ npm downloads</strong> in the week of __NPM_WEEKLY_RANGE__.
+              <p>
+                Verified traction: <strong>106,574 npm downloads</strong> for <code>@peermetrics/webrtc-stats</code> during May 15-21, 2026.
               </p>
-              <div class="d-flex flex-column flex-sm-row align-items-sm-center">
-                <a
-                  href="https://www.npmjs.com/package/@peermetrics/webrtc-stats"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-success mr-sm-2 mb-2 mb-sm-0"
-                  data-analytics-event="cta_click"
-                  data-analytics-name="open_source_npm"
-                  data-analytics-location="open_source"
-                >
-                  View on npm
-                </a>
-                <a
-                  href="https://github.com/peermetrics/webrtc-stats"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-outline-primary"
-                  data-analytics-event="cta_click"
-                  data-analytics-name="open_source_github"
-                  data-analytics-location="open_source"
-                >
-                  View on GitHub
-                </a>
+              <div class="d-flex flex-column flex-sm-row align-items-sm-center flex-wrap">
+                <a href="https://www.npmjs.com/package/@peermetrics/webrtc-stats" class="btn btn-outline-primary mb-2 mr-sm-2" target="_blank" rel="noopener noreferrer">View webrtc-stats</a>
+                <a href="https://www.npmjs.com/package/@peermetrics/sdk" class="btn btn-outline-primary mb-2 mr-sm-2" target="_blank" rel="noopener noreferrer">View SDK</a>
+                <a href="https://github.com/peermetrics/peermetrics" class="btn btn-success mb-2" target="_blank" rel="noopener noreferrer">View full platform</a>
               </div>
             </div>
             <div class="col-12 col-lg-5">
-              <div class="section-panel">
-                <h3 class="h4">Why promote the library on the homepage</h3>
-                <ul class="signal-list mb-0">
-                  <li>It proves the Peermetrics ecosystem has real developer adoption.</li>
-                  <li>It gives first-time visitors a low-friction OSS entry point.</li>
-                  <li>It ties the brand to a concrete artifact machines and humans can reference.</li>
-                  <li>It makes the product story clearer: collect stats first, troubleshoot at the platform layer.</li>
-                </ul>
+              <div class="card pricing card-lg">
+                <div class="card-body">
+                  <h3 class="h4">Core repos</h3>
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-3"><strong><a href="https://github.com/peermetrics/webrtc-stats" target="_blank" rel="noopener noreferrer"><code>@peermetrics/webrtc-stats</code></a>:</strong> Raw WebRTC stats collection and parsing.</li>
+                    <li class="mb-3"><strong><a href="https://github.com/peermetrics/sdk-js" target="_blank" rel="noopener noreferrer"><code>@peermetrics/sdk</code></a>:</strong> App-level instrumentation, integrations, and session context.</li>
+                    <li class="mb-3"><strong><a href="https://github.com/peermetrics/api" target="_blank" rel="noopener noreferrer"><code>peermetrics/api</code></a>:</strong> Ingestion and processing pipeline.</li>
+                    <li><strong><a href="https://github.com/peermetrics/web" target="_blank" rel="noopener noreferrer"><code>peermetrics/web</code></a>:</strong> Visualization and dashboard UI.</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="managed-services" data-section="managed_services">
+      <section id="about" class="bg-white">
+        <div class="container">
+          <div class="row justify-content-center text-center section-intro">
+            <div class="col-12 col-md-11">
+              <span class="title-decorative">Peermetric’s Mission</span>
+              <h2 class="display-5">Peermetrics is an open source, self-hosted WebRTC analytics platform designed to help developers monitor, analyze, and optimize their real-time communication applications.</h2>
+              <span class="lead">
+                It has the perfect mix of features so your users will never ask: &quot;Hey, can you hear me?&quot;
+              </span>
+            </div>
+          </div>
+        </div>
+        <article class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 text-center">
+              <img alt="About Peer Metrics" src="/static/img/about/header.jpg" class="figure-image img-fluid rounded" />
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="managed-services">
         <div class="container">
           <div class="row justify-content-center text-center section-intro">
             <div class="col-12 col-md-10">
               <span class="title-decorative">Managed Services</span>
-              <h2 class="display-4 mb-3">Need Peermetrics without owning the infrastructure?</h2>
+              <h2 class="display-4 mb-3">Peermetrics Managed Service and Custom Integrations</h2>
               <span class="lead">
-                <a href="https://webrtc.ventures" target="_blank" rel="noopener noreferrer">WebRTC.ventures</a> offers managed deployments, custom integrations, and direct expert help for teams running production WebRTC workloads.
+                For scale, large workloads, production environments, or organizations preferring to focus on their core application rather than infrastructure management, <a href="https://webrtc.ventures" target="_blank" rel="noopener noreferrer">WebRTC.ventures</a> offers managed services for your self-hosted Peermetrics deployment.
               </span>
             </div>
           </div>
@@ -324,31 +259,30 @@
             <div class="col-12 col-md-10">
               <h3 class="display-5">We Offer:</h3>
               <ul class="list-unstyled text-left">
-                <li class="mb-3 lead"><strong>Expert implementation:</strong> Setup and configuration by the team maintaining the Peermetrics codebase.</li>
-                <li class="mb-3 lead"><strong>Managed infrastructure:</strong> Ongoing maintenance, monitoring, updates, and scaling for self-hosted deployments.</li>
-                <li class="mb-3 lead"><strong>Enterprise support:</strong> Direct access to WebRTC specialists for high-priority issues and roadmap needs.</li>
-                <li class="mb-4 lead"><strong>Custom development:</strong> Extensions and integrations for proprietary or domain-specific workflows.</li>
+                <li class="mb-3 lead"><strong>Expert Implementation:</strong> Professional setup and configuration by the team that maintains the PeerMetrics codebase, ensuring optimal performance and security.</li>
+                <li class="mb-3 lead"><strong>Managed Infrastructure:</strong> Complete maintenance services, including monitoring, updates, and scaling management of your self-hosted deployment.</li>
+                <li class="mb-3 lead"><strong>Enterprise Support:</strong> Dedicated support channels with guaranteed response times and direct access to WebRTC specialists.</li>
+                <li class="mb-4 lead"><strong>Custom Development:</strong> Direct access to the development team for specialized features, integrations with proprietary systems, and enhanced analytics capabilities.</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contact" data-section="contact">
+      <section id="contact">
         <div class="container">
           <div class="row justify-content-center text-center section-intro">
             <div class="col-12 col-md-10">
-              <span class="title-decorative">Get started</span>
-              <h2 class="display-5">Choose the path that fits your team</h2>
-              <span class="lead">Self-host the platform, adopt the open-source stats library, or talk to us about a managed deployment.</span>
+              <span class="title-decorative">Need Help?</span>
+              <h2 class="display-5">Questions about the platform or looking for custom implementations or managed service?</h2>
+              <span class="lead">Reach out to the WebRTC.ventures team.</span>
             </div>
           </div>
           <div class="row justify-content-center">
             <div class="col-12 col-lg-8">
               <div class="card pricing card-lg">
                 <div class="card-body">
-                  <h3 class="text-center">Talk to the team</h3>
-                  <p class="text-center mb-4">Questions about the platform, a managed deployment, or a custom integration? Reach out and we’ll help scope the right path.</p>
+                  <h5 class="text-center">How Can We Help?</h5>
                   <div id="hubspot-form"></div>
                 </div>
               </div>
@@ -358,20 +292,12 @@
             <div class="col-12 col-lg-8">
               <div class="card pricing card-lg">
                 <div class="card-body">
-                  <h3>Self-host the open-source platform</h3>
-                  <h6>Peermetrics is fully open source.</h6>
+                  <h3>Self-host</h3>
+                  <h6>peer metrics is fully open source.</h6>
                   <p>
-                    Start with the core platform, follow the docs on GitHub, and deploy monitoring your team can control end to end.
+                    You can start hosting your own instance in 2 simple steps. Check GitHub for setup and deployment details.
                   </p>
-                  <a
-                    href="https://github.com/peermetrics/peermetrics"
-                    class="btn btn-lg btn-success"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-analytics-event="cta_click"
-                    data-analytics-name="contact_docs"
-                    data-analytics-location="contact"
-                  >
+                  <a href="https://github.com/peermetrics/peermetrics" class="btn btn-lg btn-success" target="_blank" rel="noopener noreferrer">
                     See the documentation
                   </a>
                 </div>
@@ -388,20 +314,19 @@
           <div class="col-auto">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="/"><img class="logo logo-sm" alt="Peermetrics logo" src="/static/img/logo-icon-gray.png" /></a>
+                <a href="/"><img class="logo logo-sm" alt="logo" src="/static/img/logo-icon-gray.png" /></a>
               </li>
-              <li class="list-inline-item"><a href="#platform">Platform</a></li>
+              <li class="list-inline-item"><a href="#about">About</a></li>
               <li class="list-inline-item"><a href="#open-source">Open source</a></li>
-              <li class="list-inline-item"><a href="#contact">Contact</a></li>
+              <li class="list-inline-item"><a href="#contact">Need Help?</a></li>
               <li class="list-inline-item"><a href="#managed-services">Managed Services</a></li>
-              <li class="list-inline-item"><a href="https://github.com/peermetrics/peermetrics?tab=readme-ov-file#license" target="_blank" rel="noopener noreferrer">Terms</a></li>
             </ul>
           </div>
           <div class="col-auto text-sm-right">
             <ul class="list-inline">
-              <li class="list-inline-item"><a href="https://github.com/peermetrics" target="_blank" rel="noopener noreferrer"><img src="/static/img/social/github-gray.svg" height="16" width="16" alt="GitHub" /></a></li>
-              <li class="list-inline-item"><a href="https://twitter.com/peermetrics" target="_blank" rel="noopener noreferrer"><img src="/static/img/social/twitter-gray.svg" height="16" width="16" alt="Twitter" /></a></li>
-              <li class="list-inline-item"><a href="https://www.linkedin.com/company/peermetrics" target="_blank" rel="noopener noreferrer"><img src="/static/img/social/linkedin-gray.svg" height="16" width="16" alt="LinkedIn" /></a></li>
+              <li class="list-inline-item"><a href="https://github.com/peermetrics" target="_blank" rel="noopener noreferrer"><img src="/static/img/social/github-gray.svg" height="16" width="16" alt="github" /></a></li>
+              <li class="list-inline-item"><a href="https://twitter.com/peermetrics" target="_blank" rel="noopener noreferrer"><img src="/static/img/social/twitter-gray.svg" height="16" width="16" alt="twitter" /></a></li>
+              <li class="list-inline-item"><a href="https://www.linkedin.com/company/peermetrics" target="_blank" rel="noopener noreferrer"><img src="/static/img/social/linkedin-gray.svg" height="16" width="16" alt="linkedin" /></a></li>
             </ul>
           </div>
         </nav>
@@ -411,63 +336,11 @@
     <script>
       window.addEventListener('load', function () {
         if (window.hbspt && window.hbspt.forms) {
-          window.trackEvent('hubspot_form_view', {
-            form_id: 'd13525b7-7d18-45e7-81f3-b75d03e31acb',
-            form_location: 'contact'
-          });
-
           window.hbspt.forms.create({
             portalId: '45353883',
             formId: 'd13525b7-7d18-45e7-81f3-b75d03e31acb',
             region: 'na1',
-            target: '#hubspot-form',
-            onFormReady: function () {
-              window.trackEvent('hubspot_form_ready', {
-                form_id: 'd13525b7-7d18-45e7-81f3-b75d03e31acb',
-                form_location: 'contact'
-              });
-            },
-            onFormSubmitted: function () {
-              window.trackEvent('generate_lead', {
-                form_id: 'd13525b7-7d18-45e7-81f3-b75d03e31acb',
-                form_location: 'contact'
-              });
-            }
-          });
-        }
-
-        document.querySelectorAll('[data-analytics-event]').forEach(function (element) {
-          element.addEventListener('click', function () {
-            window.trackEvent(element.dataset.analyticsEvent, {
-              cta_name: element.dataset.analyticsName,
-              cta_location: element.dataset.analyticsLocation,
-              link_url: element.href || ''
-            });
-          });
-        });
-
-        if ('IntersectionObserver' in window) {
-          var seenSections = {};
-          var sectionObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              if (!entry.isIntersecting) {
-                return;
-              }
-              var sectionName = entry.target.dataset.section;
-              if (!sectionName || seenSections[sectionName]) {
-                return;
-              }
-              seenSections[sectionName] = true;
-              window.trackEvent('section_view', {
-                section_name: sectionName
-              });
-            });
-          }, {
-            threshold: 0.45
-          });
-
-          document.querySelectorAll('[data-section]').forEach(function (section) {
-            sectionObserver.observe(section);
+            target: '#hubspot-form'
           });
         }
       });
