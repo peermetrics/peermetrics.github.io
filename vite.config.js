@@ -7,6 +7,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        faq: resolve(__dirname, 'faq.html'),
+        useCases: resolve(__dirname, 'use-cases.html'),
         livekit: resolve(__dirname, 'integrations/livekit.html'),
         mediasoup: resolve(__dirname, 'integrations/mediasoup.html'),
         janus: resolve(__dirname, 'integrations/janus.html'),

@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peermetrics FAQ | WebRTC Monitoring Questions Answered</title>
+    <meta
+      name="description"
+      content="Answers to common Peermetrics questions about self-hosting, WebRTC monitoring, supported SDKs, SIP visibility, metrics captured, and managed service options."
+    />
+    <link rel="canonical" href="https://peermetrics.io/faq.html" />
+    <meta name="google" content="notranslate" />
+    <meta property="og:site_name" content="peermetrics.io" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://peermetrics.io/faq.html" />
+    <meta property="og:title" content="Peermetrics FAQ | WebRTC Monitoring Questions Answered" />
+    <meta
+      property="og:description"
+      content="Learn what Peermetrics measures, how self-hosting works, which WebRTC SDKs are supported, and when managed service is the right fit."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://peermetrics.io/faq.html" />
+    <meta name="twitter:title" content="Peermetrics FAQ | WebRTC Monitoring Questions Answered" />
+    <meta
+      name="twitter:description"
+      content="Learn what Peermetrics measures, how self-hosting works, which WebRTC SDKs are supported, and when managed service is the right fit."
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicon/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/static/img/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-config" content="/static/img/favicon/browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <link rel="icon" type="image/png" href="/static/img/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/static/img/favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="shortcut icon" href="/static/img/favicon/favicon.ico" />
+    <meta name="theme-color" content="#ffffff" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500" rel="stylesheet" />
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/static/css/main.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/static/css/entypo.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/static/css/overrides.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does Peermetrics measure?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Peermetrics helps teams inspect call quality, packet loss, jitter, round-trip time, session failures, and other WebRTC diagnostics so they can troubleshoot production issues with session-level context."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Peermetrics self-hosted?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Peermetrics is an open-source, self-hosted WebRTC monitoring stack. Teams can deploy and operate it themselves or work with WebRTC.ventures for managed hosting and custom integrations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which WebRTC SDKs and platforms are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The current first-party integration pages cover LiveKit, Mediasoup, Janus, Vonage, Agora, Pion, and Jitsi, but those are examples rather than the limit. Peermetrics can also integrate with native WebRTC applications and other RTC tools through the SDK-level capture approach, including the example at https://github.com/peermetrics/sdk-js/blob/master/examples/basic-webrtc.html."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can Peermetrics help with SIP and hybrid RTC deployments?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Peermetrics is useful when teams need session-level call diagnostics across modern WebRTC applications and hybrid SIP or VoIP environments, especially when debugging call quality and media path problems."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When should a team use managed service instead of self-hosting everything alone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Managed service is a good fit when teams want faster rollout, dedicated WebRTC expertise, or help operating monitoring infrastructure at scale without diverting focus from their core product."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="navbar-container">
+      <div class="bg-dark navbar-dark" data-sticky="top">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="/">
+              <img class="logo logo-sm" alt="Peer metrics logo" src="/static/img/logo.png" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="icon-menu h4"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a href="/#about" class="nav-link">About</a></li>
+                <li class="nav-item dropdown">
+                  <a href="javascript:void(0)" class="nav-link dropdown-toggle" id="integrationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Integrations</a>
+                  <div class="dropdown-menu" aria-labelledby="integrationsDropdown">
+                    <a class="dropdown-item" href="/integrations/livekit.html">LiveKit</a>
+                    <a class="dropdown-item" href="/integrations/mediasoup.html">Mediasoup</a>
+                    <a class="dropdown-item" href="/integrations/janus.html">Janus</a>
+                    <a class="dropdown-item" href="/integrations/vonage.html">Vonage</a>
+                    <a class="dropdown-item" href="/integrations/agora.html">Agora</a>
+                    <a class="dropdown-item" href="/integrations/pion.html">Pion</a>
+                    <a class="dropdown-item" href="/integrations/jitsi.html">Jitsi</a>
+                  </div>
+                </li>
+                <li class="nav-item"><a href="/#managed-services" class="nav-link">Managed Services</a></li>
+                <li class="nav-item"><a href="/use-cases.html" class="nav-link">Use Cases</a></li>
+                <li class="nav-item"><a href="/faq.html" class="nav-link">FAQ</a></li>
+                <li class="nav-item"><a href="https://github.com/peermetrics/peermetrics" class="nav-link" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+                <li class="nav-item"><a href="https://www.youtube.com/watch?v=VdgfarYkdGQ&t=15s" class="nav-link demo-btn" target="_blank" rel="noopener noreferrer">See how it works</a></li>
+              </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item"><a href="/#contact">Need Help?</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-container integration-page">
+      <section class="bg-white integration-page-hero">
+        <div class="container">
+          <div class="row align-items-center justify-content-around">
+            <div class="col-12 col-md-6 col-lg-6 text-center text-md-left section-intro hero-copy">
+              <span class="title-decorative">FAQ</span>
+              <h1 class="display-4">WebRTC monitoring questions teams ask before they deploy</h1>
+              <span class="lead">
+                Use this page to answer common product, implementation, and deployment questions about Peermetrics.
+              </span>
+              <p class="mt-3 mb-0 integration-intro-copy">
+                The goal is simple: reduce friction for engineering, support, and platform teams evaluating self-hosted WebRTC observability and call quality monitoring.
+              </p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-5">
+              <div class="integration-hero-panel">
+                <div class="integration-hero-chip">Peermetrics FAQ</div>
+                <h3>What this page covers</h3>
+                <ul class="integration-hero-list">
+                  <li>What Peermetrics measures in production calls.</li>
+                  <li>How self-hosting and managed service compare.</li>
+                  <li>Supported WebRTC platforms and deployment patterns.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-white pt-0">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+              <div class="card pricing card-lg integration-page-card">
+                <div class="card-body">
+                  <div class="faq-item">
+                    <h3 class="h4">What does Peermetrics measure?</h3>
+                    <p>
+                      Peermetrics is built for WebRTC monitoring and call diagnostics. It helps teams inspect packet loss, jitter, round-trip time, session failures, and related call quality signals so they can explain what happened in a real user session instead of guessing from tickets.
+                    </p>
+                  </div>
+                  <div class="faq-item">
+                    <h3 class="h4">Is Peermetrics self-hosted?</h3>
+                    <p>
+                      Yes. The platform is open source and designed for self-hosted deployments. Teams that want more help with rollout, scaling, or custom integrations can also work with WebRTC.ventures on a managed-service basis.
+                    </p>
+                  </div>
+                  <div class="faq-item">
+                    <h3 class="h4">Which platforms does Peermetrics support today?</h3>
+                    <p>
+                      The current site includes integration pages for LiveKit, Mediasoup, Janus, Vonage, Agora, Pion, and Jitsi, but those are examples rather than the limit. Peermetrics can also integrate with native WebRTC applications and other RTC tools through the SDK-level capture approach.
+                    </p>
+                    <p>
+                      For a direct native WebRTC capture example, see <a href="https://github.com/peermetrics/sdk-js/blob/master/examples/basic-webrtc.html" target="_blank" rel="noopener noreferrer">the basic WebRTC example in <code>@peermetrics/sdk</code></a>.
+                    </p>
+                  </div>
+                  <div class="faq-item">
+                    <h3 class="h4">Can Peermetrics help with SIP or VoIP monitoring too?</h3>
+                    <p>
+                      Yes, especially for hybrid environments where SIP, VoIP, and WebRTC quality issues need to be understood together. The best-fit use case is session-level troubleshooting and root-cause analysis, not only generic telecom reporting.
+                    </p>
+                  </div>
+                  <div class="faq-item">
+                    <h3 class="h4">Why not just rely on raw getStats output or generic observability tools?</h3>
+                    <p>
+                      Raw stats and infrastructure dashboards are useful, but they do not automatically translate into a session narrative that engineering and support can act on. Peermetrics is meant to bridge that gap with application-aware WebRTC analytics and troubleshooting context.
+                    </p>
+                  </div>
+                  <div class="faq-item">
+                    <h3 class="h4">When should a team use managed service?</h3>
+                    <p>
+                      Managed service makes sense when time-to-value matters, when rollout is complex, or when the team would rather not own every part of monitoring infrastructure and RTC-specific operations internally.
+                    </p>
+                  </div>
+                  <div class="faq-item">
+                    <h3 class="h4">Where should I start if I want to evaluate Peermetrics quickly?</h3>
+                    <p>
+                      Start with the open-source repositories, review the integration pages that match your stack, and use the <a href="/use-cases.html">use cases page</a> to see how Peermetrics aligns with large-scale monitoring and telehealth-style production requirements.
+                    </p>
+                  </div>
+                  <div class="text-center mt-4">
+                    <a href="https://github.com/peermetrics/peermetrics" class="btn btn-success mr-sm-2 mb-2" target="_blank" rel="noopener noreferrer">View the platform on GitHub</a>
+                    <a href="/#contact" class="btn btn-outline-primary mb-2">Talk to us about deployment</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-short">
+      <div class="container">
+        <nav class="row justify-content-between align-items-center">
+          <div class="col-auto">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="/"><img class="logo logo-sm" alt="logo" src="/static/img/logo-icon-gray.png" /></a>
+              </li>
+              <li class="list-inline-item"><a href="/#about">About</a></li>
+              <li class="list-inline-item"><a href="/use-cases.html">Use Cases</a></li>
+              <li class="list-inline-item"><a href="/faq.html">FAQ</a></li>
+              <li class="list-inline-item"><a href="/#contact">Need Help?</a></li>
+            </ul>
+          </div>
+          <div class="col-auto text-sm-right">
+            <ul class="list-inline">
+              <li class="list-inline-item"><a href="https://github.com/peermetrics" target="_blank" rel="noopener noreferrer"><img src="/static/img/social/github-gray.svg" height="16" width="16" alt="github" /></a></li>
+              <li class="list-inline-item"><a href="https://twitter.com/peermetrics" target="_blank" rel="noopener noreferrer"><img src="/static/img/social/twitter-gray.svg" height="16" width="16" alt="twitter" /></a></li>
+              <li class="list-inline-item"><a href="https://www.linkedin.com/company/peermetrics" target="_blank" rel="noopener noreferrer"><img src="/static/img/social/linkedin-gray.svg" height="16" width="16" alt="linkedin" /></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -380,3 +380,28 @@ footer.footer-short {
 #hubspot-form iframe {
   width: 100% !important;
 }
+
+.faq-item {
+  margin-bottom: 1.5rem;
+}
+
+.faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.faq-item h3 {
+  margin-bottom: 0.65rem;
+}
+
+.resource-card {
+  height: 100%;
+}
+
+.resource-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-card .btn {
+  margin-top: auto;
+}
