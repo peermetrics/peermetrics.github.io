@@ -7,8 +7,9 @@
     "build:css": "sass static/css/main.scss static/css/main.css --no-source-map",
     "build:content": "node scripts/update-npm-downloads.mjs",
     "dev": "npm run build:css && npm run build:content && vite",
-    "build": "npm run build:css && npm run build:content && vite build",
-    "preview": "vite preview"
+    "build": "npm run build:css && npm run build:content && npm run prepare:demo-assets && vite build",
+    "preview": "vite preview",
+    "prepare:demo-assets": "node scripts/prepare-demo-assets.mjs"
   },
   "dependencies": {
     "bootstrap": "^4.6.1",
