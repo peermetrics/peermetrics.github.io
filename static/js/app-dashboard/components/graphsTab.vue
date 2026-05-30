@@ -1,5 +1,28 @@
 <template>
   <div>
+    <div class="dashboard-summary mt-3">
+      <div class="d-flex align-items-end justify-content-between flex-wrap mb-2">
+        <div>
+          <p class="lead mb-1">At a glance</p>
+          <p class="text-muted mb-0">Key metrics for the current filter selection.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div
+          v-for="card in summaryCards"
+          :key="card.label"
+          class="col-sm-6 col-xl-3 mb-3"
+        >
+          <div class="summary-card" :class="card.toneClass">
+            <p class="summary-label">{{ card.label }}</p>
+            <p class="summary-value">{{ card.value }}</p>
+            <p class="summary-detail mb-0">{{ card.detail }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row mt-3">
       <div class="col">
         <p class="lead">Conferences</p>
@@ -69,13 +92,6 @@
       </div>
     </div>
 
-    <div class="row mt-3">
-      <div class="col">
-        <p class="lead">Map</p>
-        <Loader v-if="sessions == null" />
-        <map-chart v-else :sessions="sessions" />
-      </div>
-    </div>
   </div>
 </template>
 
@@ -91,7 +107,6 @@ import NoParticipantsChart from "./graphs/noParticipantsChart.vue";
 
 import BrowsersChart from "../../components/browsersChart.vue";
 import OSChart from "../../components/osChart.vue";
-import MapChart from "../../components/mapChart.vue";
 import Loader from "../../components/loader.vue";
 
 export default {
@@ -107,7 +122,6 @@ export default {
     NoParticipantsChart,
     BrowsersChart,
     OSChart,
-    MapChart,
     Loader
   },
   props: {
@@ -137,6 +151,86 @@ export default {
     },
   },
   computed: {
+    conferencesCount() {
+      return Array.isArray(this.conferences) ? this.conferences.length : 0;
+    },
+    participantsCount() {
+      if (Array.isArray(this.sessions) && this.sessions.length) {
+        return new Set(this.sessions.map((session) => session.participant).filter(Boolean)).size;
+      }
+
+      if (Array.isArray(this.conferences) && this.conferences.length) {
+        return new Set(
+          this.conferences
+            .map((conference) => conference.participants || [])
+            .reduce((allParticipants, participants) => allParticipants.concat(participants), [])
+            .filter(Boolean)
+        ).size;
+      }
+
+      return 0;
+    },
+    averageConferenceDurationSeconds() {
+      if (!Array.isArray(this.conferences) || !this.conferences.length) {
+        return 0;
+      }
+
+      const totalDuration = this.conferences.reduce((sum, conference) => {
+        return sum + (conference.duration || 0);
+      }, 0);
+
+      return totalDuration / this.conferences.length;
+    },
+    healthyConferenceCount() {
+      if (!Array.isArray(this.conferences) || !this.conferences.length) {
+        return 0;
+      }
+
+      return this.conferences.filter((conference) => {
+        return !conference.issues || conference.issues.length === 0;
+      }).length;
+    },
+    summaryCards() {
+      if (this.conferences == null || this.sessions == null) {
+        return [
+          { label: 'Conferences', value: '...', detail: 'Loading conference data', toneClass: 'summary-card--blue' },
+          { label: 'Participants', value: '...', detail: 'Loading participant data', toneClass: 'summary-card--green' },
+          { label: 'Avg duration', value: '...', detail: 'Calculating averages', toneClass: 'summary-card--gold' },
+          { label: 'Healthy calls', value: '...', detail: 'Checking issue coverage', toneClass: 'summary-card--rose' },
+        ];
+      }
+
+      const healthyRate = this.conferencesCount
+        ? Math.round((this.healthyConferenceCount / this.conferencesCount) * 100)
+        : 0;
+
+      return [
+        {
+          label: 'Conferences',
+          value: this.formatCount(this.conferencesCount),
+          detail: this.conferencesCount === 1 ? '1 conference in view' : `${this.formatCount(this.conferencesCount)} conferences in view`,
+          toneClass: 'summary-card--blue'
+        },
+        {
+          label: 'Participants',
+          value: this.formatCount(this.participantsCount),
+          detail: this.participantsCount === 1 ? '1 unique participant' : `${this.formatCount(this.participantsCount)} unique participants`,
+          toneClass: 'summary-card--green'
+        },
+        {
+          label: 'Avg duration',
+          value: this.formatDuration(this.averageConferenceDurationSeconds),
+          detail: this.conferencesCount ? 'Average across filtered conferences' : 'No conferences match current filters',
+          toneClass: 'summary-card--gold'
+        },
+        {
+          label: 'Healthy calls',
+          value: `${healthyRate}%`,
+          detail: this.conferencesCount ? `${this.formatCount(this.healthyConferenceCount)} without issues` : 'No conferences match current filters',
+          toneClass: 'summary-card--rose'
+        }
+      ];
+    },
     gumIssues() {
       if (this.issues) {
         return this.issues.filter((issue) => {
@@ -146,11 +240,85 @@ export default {
 
       return []
     }
+  },
+  methods: {
+    formatCount(value) {
+      return new Intl.NumberFormat().format(value || 0);
+    },
+    formatDuration(value) {
+      const totalMinutes = Math.round((value || 0) / 60);
+
+      if (!totalMinutes) {
+        return '0m';
+      }
+
+      if (totalMinutes < 60) {
+        return `${totalMinutes}m`;
+      }
+
+      const hours = Math.floor(totalMinutes / 60);
+      const minutes = totalMinutes % 60;
+
+      if (!minutes) {
+        return `${hours}h`;
+      }
+
+      return `${hours}h ${minutes}m`;
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.dashboard-summary {
+  .summary-card {
+    height: 100%;
+    border-radius: 16px;
+    padding: 18px 20px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 18px 40px -28px rgba(15, 23, 42, 0.35);
+  }
+
+  .summary-card--blue {
+    border-top: 4px solid #2563eb;
+  }
+
+  .summary-card--green {
+    border-top: 4px solid #059669;
+  }
+
+  .summary-card--gold {
+    border-top: 4px solid #d97706;
+  }
+
+  .summary-card--rose {
+    border-top: 4px solid #e11d48;
+  }
+
+  .summary-label {
+    margin-bottom: 8px;
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .summary-value {
+    margin-bottom: 6px;
+    color: #0f172a;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .summary-detail {
+    color: #475569;
+    font-size: 0.95rem;
+  }
+}
+
 .card-body {
   display: flex;
   align-items: center;

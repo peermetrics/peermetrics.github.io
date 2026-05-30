@@ -18,13 +18,14 @@
     <link href="/static/css/main.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/static/css/entypo.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/static/css/overrides.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" crossorigin="" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" crossorigin=""></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+      var peermetrics = window.peermetrics = window.peermetrics || {}
+    </script>
     <script src="/static/js/peermetrics.js"></script>
   </head>
   <body class="pm-demo-page">
@@ -125,10 +126,11 @@
     </footer>
 
     <script>
-      peermetrics.conference = {
+      window.peermetrics = window.peermetrics || {}
+      window.peermetrics.conference = {
         id: 'demo-conference'
       }
-      peermetrics.daysHistory = 15
+      window.peermetrics.daysHistory = 15
     </script>
     <script src="/static/js/demo/demo-conference.js"></script>
     <script src="/static/js/conference/index.min.js"></script>
