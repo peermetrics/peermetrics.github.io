@@ -19,10 +19,6 @@
       :events="events"
       v-else
     />
-
-    <p class="mt-3 mb-3">Participant locations</p>
-    <Loader v-if="sessions === null" />
-    <map-chart v-else :sessions="sessions" />
   </div>
 </template>
 
@@ -30,7 +26,6 @@
 import Loader from "../../components/loader.vue";
 import ParticipantsCard from "./participantsCard.vue";
 import ParticipantsAccordion from "./participantsAccordion.vue";
-import MapChart from "../../components/mapChart.vue";
 
 export default {
   name: "overview-tab",
@@ -69,8 +64,7 @@ export default {
   components: {
     Loader,
     ParticipantsAccordion,
-    ParticipantsCard,
-    MapChart
+    ParticipantsCard
   },
 };
 </script>

@@ -9,6 +9,8 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         faq: resolve(__dirname, 'faq.html'),
         useCases: resolve(__dirname, 'use-cases.html'),
+        demo: resolve(__dirname, 'demo/index.html'),
+        demoConference: resolve(__dirname, 'demo/conference/index.html'),
         livekit: resolve(__dirname, 'integrations/livekit.html'),
         mediasoup: resolve(__dirname, 'integrations/mediasoup.html'),
         janus: resolve(__dirname, 'integrations/janus.html'),

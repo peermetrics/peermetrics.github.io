@@ -20,10 +20,18 @@
     );
   }
 
+  const initialSeed = 424242
+  let seededValue = initialSeed
+
+  let seededRandom = () => {
+      seededValue = (seededValue * 1664525 + 1013904223) % 4294967296
+      return seededValue / 4294967296
+  }
+
   let getRandomInt = (min, max) => {
       min = Math.ceil(min);
       max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min;
+      return Math.floor(seededRandom() * (max - min + 1)) + min;
   }
 
   let randomIdList = (length) => {
@@ -31,16 +39,16 @@
   }
 
   const conferenceNames = [
-    'Conference call',
-    'Client 1',
-    'Sales meeting',
-    'Recording with John',
-    'Recording with Mary',
-    'Customer support',
-    'Meeting',
-    'First meeting',
-    'Scheduled call',
-    'Introduction call',
+    'Daily care coordination',
+    'Enterprise account review',
+    'Support escalation',
+    'Sales discovery',
+    'Clinical follow-up',
+    'Onboarding walkthrough',
+    'Product feedback call',
+    'Team standup',
+    'Executive sync',
+    'Implementation workshop',
   ]
 
   let createConference = ({start, end, ongoing=false}) => {
@@ -298,7 +306,7 @@
 
   peermetrics.createPath = function (pathName, arg) {
     if (pathName === 'conference') {
-      return '/how-it-works/conference/demo-conference'
+      return '/demo/conference/'
     }
 
     throw new Error('Could not find path with that name')
