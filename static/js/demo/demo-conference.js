@@ -11,7 +11,7 @@
   }
 
   peermetrics.createPath = function (pathName, arg) {
-    return '/demo/conference/demo-conference'
+    return '/demo/conference/'
   }
 
   peermetrics.get = function (url) {
@@ -25,13 +25,13 @@
 
   peermetrics.post = function (url, data) {
     return new Promise((resolve) => {
-        setTimeout(resolve, 2000)
+        setTimeout(() => resolve({ ok: true }), 2000)
     })
   }
 
   peermetrics.put = function (url, data) {
     return new Promise((resolve) => {
-        setTimeout(resolve, 2000)
+        setTimeout(() => resolve({ ok: true }), 2000)
     })
   }
 }())
