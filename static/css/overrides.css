@@ -462,6 +462,16 @@ footer.footer-short {
   justify-content: flex-start;
 }
 
+.pm-demo-actions--split {
+  align-items: flex-start;
+}
+
+.pm-demo-actions-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
 .pm-demo-actions .btn {
   margin: 0;
 }
@@ -522,6 +532,10 @@ footer.footer-short {
   .pm-demo-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .pm-demo-actions-stack {
+    width: 100%;
   }
 
   .pm-demo-actions .btn {
