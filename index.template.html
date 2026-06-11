@@ -105,10 +105,10 @@
                 Monitor call quality, inspect packet loss and jitter, and troubleshoot real session failures with a self-hosted analytics stack built for custom observability workflows.
               </span>
               <div class="mt-3 d-flex flex-column flex-sm-row flex-md-column align-items-center align-items-md-start">
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/peermetrics/peermetrics" class="btn btn-success btn-lg mb-2 mb-sm-0 mr-sm-2 mr-md-0">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/peermetrics/peermetrics" class="btn btn-success btn-lg mb-2 mb-sm-0 mr-sm-2 mr-md-0" data-ga-cta="hero_github">
                   Get started on GitHub
                 </a>
-                <a href="#contact" class="btn btn-outline-primary btn-lg mt-md-2">
+                <a href="#contact" class="btn btn-outline-primary btn-lg mt-md-2" data-ga-cta="hero_contact">
                   Talk to us about deployment and integrations
                 </a>
               </div>
@@ -351,10 +351,10 @@
                     These workflows are not packaged product features today. They are custom implementation paths for teams that want Peermetrics data connected to the systems they already rely on.
                   </p>
                   <div class="d-flex flex-column flex-sm-row align-items-sm-center flex-wrap">
-                    <a href="#contact" class="btn btn-success mb-2 mr-sm-2">Talk to us about a custom integration</a>
-                    <a href="/integrations/opentelemetry-webrtc-observability.html" class="btn btn-outline-primary mb-2 mr-sm-2">OpenTelemetry and dashboards</a>
-                    <a href="/integrations/mcp-webrtc-monitoring.html" class="btn btn-outline-primary mb-2 mr-sm-2">MCP and developer tools</a>
-                    <a href="/agentic-webrtc-metrics.html" class="btn btn-outline-primary mb-2">AI-assisted workflows</a>
+                    <a href="#contact" class="btn btn-success mb-2 mr-sm-2" data-ga-cta="integrations_contact">Talk to us about a custom integration</a>
+                    <a href="/integrations/opentelemetry-webrtc-observability.html" class="btn btn-outline-primary mb-2 mr-sm-2" data-ga-cta="integrations_otel">OpenTelemetry and dashboards</a>
+                    <a href="/integrations/mcp-webrtc-monitoring.html" class="btn btn-outline-primary mb-2 mr-sm-2" data-ga-cta="integrations_mcp">MCP and developer tools</a>
+                    <a href="/agentic-webrtc-metrics.html" class="btn btn-outline-primary mb-2" data-ga-cta="integrations_ai">AI-assisted workflows</a>
                   </div>
                 </div>
               </div>
@@ -391,7 +391,7 @@
                   <p>
                     You can start hosting your own instance in 2 simple steps. Check GitHub for setup and deployment details.
                   </p>
-                  <a href="https://github.com/peermetrics/peermetrics" class="btn btn-lg btn-success" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/peermetrics/peermetrics" class="btn btn-lg btn-success" target="_blank" rel="noopener noreferrer" data-ga-cta="self_host_docs">
                     See the documentation
                   </a>
                 </div>
@@ -441,6 +441,20 @@
             target: '#hubspot-form'
           });
         }
+
+        document.querySelectorAll('[data-ga-cta]').forEach(function (element) {
+          element.addEventListener('click', function () {
+            if (typeof window.gtag !== 'function') {
+              return;
+            }
+
+            window.gtag('event', 'cta_click', {
+              cta_id: element.getAttribute('data-ga-cta'),
+              cta_text: element.textContent.trim(),
+              cta_href: element.getAttribute('href') || ''
+            });
+          });
+        });
       });
     </script>
   </body>
