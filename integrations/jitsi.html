@@ -26,8 +26,17 @@
     <link href="/static/css/overrides.css" rel="stylesheet" type="text/css" media="all" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8G5EJHB7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S8G5EJHB7R', {
+    anonymize_ip: true
+  });
+</script>
   </head>
-  <body>
+  <body data-integration="jitsi">
 <header class="navbar-container">
       <div class="bg-dark navbar-dark" data-sticky="top">
         <div class="container">
@@ -105,19 +114,38 @@
                     <pre class="integration-code"><code>const peerMetrics = new PeerMetrics({
   apiKey: 'YOUR_API_KEY',
   userId: user.id,
-  conferenceId: roomName
+  conferenceId: roomName,
+  wrapPeerConnection: true
 })
+
+const room = connection.initJitsiConference(roomName, conferenceConfig)
 
 peerMetrics.addSdkIntegration({
   jitsi: {
-    conferenceName: 'Daily Standup',
-    wrapPeerConnection: true
+    conference: room,
+    serverId: 'jitsi-us-east',
+    serverName: 'Jitsi US East'
   }
-})
-
-const api = new JitsiMeetExternalAPI(domain, options)</code></pre>
+})</code></pre>
                   </div>
                   <p class="integration-footnote mb-0 mt-4">Based on the <a href="https://github.com/peermetrics/sdk-js/blob/master/README.md" target="_blank" rel="noopener noreferrer">PeerMetrics SDK integration docs</a>.</p>
+<div class="card bg-light border-0 mt-4">
+  <div class="card-body">
+    <span class="title-decorative">Built for hosted or self-managed Jitsi</span>
+    <h4 class="h3">Give Jitsi teams a faster path from issue report to evidence</h4>
+    <p>
+      Jitsi deployments often need proof across transports, participants, and server regions. This integration page should help teams see that Peermetrics can capture the room context as well as the WebRTC quality signals.
+    </p>
+    <p class="mb-4">
+      Start with the open-source SDK and self-hosted platform, then pull in deployment or custom integration help if you want the setup done faster.
+    </p>
+    <div class="d-flex flex-column flex-sm-row align-items-sm-center flex-wrap">
+      <a href="/demo/" class="btn btn-success mb-2 mr-sm-2" data-ga-cta="jitsi_demo">See the demo</a>
+      <a href="/#contact" class="btn btn-outline-primary mb-2 mr-sm-2" data-ga-cta="jitsi_contact">Talk to us about Jitsi monitoring</a>
+      <a href="https://github.com/peermetrics/sdk-js#jitsi-meet" class="btn btn-outline-primary mb-2" target="_blank" rel="noopener noreferrer" data-ga-cta="jitsi_docs">View Jitsi SDK docs</a>
+    </div>
+  </div>
+</div>
                 </div>
               </div>
             </div>
@@ -183,9 +211,9 @@ const api = new JitsiMeetExternalAPI(domain, options)</code></pre>
               <li class="list-inline-item">
                 <a href="/"><img class="logo logo-sm" alt="logo" src="/static/img/logo-icon-gray.png" /></a>
               </li>
-              <li class="list-inline-item"><a href="#about">About</a></li>
-              <li class="list-inline-item"><a href="#contact">Need Help?</a></li>
-              <li class="list-inline-item"><a href="#managed-services">Managed Services</a></li>
+              <li class="list-inline-item"><a href="/#about">About</a></li>
+              <li class="list-inline-item"><a href="/#contact">Need Help?</a></li>
+              <li class="list-inline-item"><a href="/#managed-services">Managed Services</a></li>
               <li class="list-inline-item"><a href="https://github.com/peermetrics/peermetrics?tab=readme-ov-file#license" target="_blank" rel="noopener noreferrer">Terms</a></li>
             </ul>
           </div>
@@ -200,6 +228,22 @@ const api = new JitsiMeetExternalAPI(domain, options)</code></pre>
       </div>
     </footer>
 
-    
+<script>
+  document.querySelectorAll('[data-ga-cta]').forEach(function (element) {
+    element.addEventListener('click', function () {
+      if (typeof window.gtag !== 'function') {
+        return;
+      }
+
+      window.gtag('event', 'cta_click', {
+        cta_id: element.getAttribute('data-ga-cta'),
+        cta_text: element.textContent.trim(),
+        cta_href: element.getAttribute('href') || '',
+        integration_id: document.body.getAttribute('data-integration') || ''
+      });
+    });
+  });
+</script>
+
   </body>
 </html>

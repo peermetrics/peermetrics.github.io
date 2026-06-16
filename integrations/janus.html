@@ -26,8 +26,17 @@
     <link href="/static/css/overrides.css" rel="stylesheet" type="text/css" media="all" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8G5EJHB7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S8G5EJHB7R', {
+    anonymize_ip: true
+  });
+</script>
   </head>
-  <body>
+  <body data-integration="janus">
 <header class="navbar-container">
       <div class="bg-dark navbar-dark" data-sticky="top">
         <div class="container">
@@ -110,13 +119,30 @@
 
 peerMetrics.addSdkIntegration({
   janus: {
-    pluginHandle,
+    plugin: pluginHandle,
     serverId: 'janus-use1-a',
     serverName: 'Janus US-East'
   }
 })</code></pre>
                   </div>
                   <p class="integration-footnote mb-0 mt-4">Based on the <a href="https://github.com/peermetrics/sdk-js/blob/master/README.md" target="_blank" rel="noopener noreferrer">PeerMetrics SDK integration docs</a>.</p>
+<div class="card bg-light border-0 mt-4">
+  <div class="card-body">
+    <span class="title-decorative">Built for support and ops</span>
+    <h4 class="h3">Make Janus troubleshooting easier to buy</h4>
+    <p>
+      This page should help Janus teams understand the operational value quickly: label SFU nodes, inspect plugin-backed session behavior, and reduce the time spent reproducing call quality complaints.
+    </p>
+    <p class="mb-4">
+      The same open-source stack can be self-hosted by your team or deployed with help if you need dashboards, ingestion, and instrumentation working faster.
+    </p>
+    <div class="d-flex flex-column flex-sm-row align-items-sm-center flex-wrap">
+      <a href="/demo/" class="btn btn-success mb-2 mr-sm-2" data-ga-cta="janus_demo">See the demo</a>
+      <a href="/#contact" class="btn btn-outline-primary mb-2 mr-sm-2" data-ga-cta="janus_contact">Talk to us about Janus monitoring</a>
+      <a href="https://github.com/peermetrics/sdk-js#janus" class="btn btn-outline-primary mb-2" target="_blank" rel="noopener noreferrer" data-ga-cta="janus_docs">View Janus SDK docs</a>
+    </div>
+  </div>
+</div>
                 </div>
               </div>
             </div>
@@ -182,9 +208,9 @@ peerMetrics.addSdkIntegration({
               <li class="list-inline-item">
                 <a href="/"><img class="logo logo-sm" alt="logo" src="/static/img/logo-icon-gray.png" /></a>
               </li>
-              <li class="list-inline-item"><a href="#about">About</a></li>
-              <li class="list-inline-item"><a href="#contact">Need Help?</a></li>
-              <li class="list-inline-item"><a href="#managed-services">Managed Services</a></li>
+              <li class="list-inline-item"><a href="/#about">About</a></li>
+              <li class="list-inline-item"><a href="/#contact">Need Help?</a></li>
+              <li class="list-inline-item"><a href="/#managed-services">Managed Services</a></li>
               <li class="list-inline-item"><a href="https://github.com/peermetrics/peermetrics?tab=readme-ov-file#license" target="_blank" rel="noopener noreferrer">Terms</a></li>
             </ul>
           </div>
@@ -199,6 +225,22 @@ peerMetrics.addSdkIntegration({
       </div>
     </footer>
 
-    
+<script>
+  document.querySelectorAll('[data-ga-cta]').forEach(function (element) {
+    element.addEventListener('click', function () {
+      if (typeof window.gtag !== 'function') {
+        return;
+      }
+
+      window.gtag('event', 'cta_click', {
+        cta_id: element.getAttribute('data-ga-cta'),
+        cta_text: element.textContent.trim(),
+        cta_href: element.getAttribute('href') || '',
+        integration_id: document.body.getAttribute('data-integration') || ''
+      });
+    });
+  });
+</script>
+
   </body>
 </html>
