@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LiveKit integration | Peer Metrics</title>
-    <meta name="description" content="Monitor LiveKit sessions by passing your Room instance into PeerMetrics so connection quality and SFU behavior are visible from the start." />
+    <title>LiveKit Monitoring for WebRTC Apps | PeerMetrics</title>
+    <meta name="description" content="Monitor LiveKit call quality, packet loss, jitter, and SFU behavior with PeerMetrics. Add your LiveKit Room to capture session evidence and debug issues faster." />
     <meta name="google" content="notranslate" />
     <meta property="og:site_name" content="peermetrics.io" />
     <meta property="og:type" content="website" />
@@ -82,9 +82,9 @@
           <div class="row align-items-center justify-content-around">
             <div class="col-12 col-md-6 col-lg-5 text-center text-md-left section-intro hero-copy">
               <span class="title-decorative">LiveKit + PeerMetrics</span>
-              <h1 class="display-4">LiveKit integration</h1>
-              <span class="lead">Monitor LiveKit sessions by passing your Room instance into PeerMetrics so connection quality and SFU behavior are visible from the start.</span>
-              <p class="mt-3 mb-0 integration-intro-copy">Initialize PeerMetrics around your Room setup, then register the LiveKit room. PeerMetrics will automatically observe the peer connections created underneath.</p>
+              <h1 class="display-4">LiveKit monitoring for WebRTC apps</h1>
+              <span class="lead">Monitor LiveKit call quality, packet loss, jitter, and SFU behavior across every session.</span>
+              <p class="mt-3 mb-0 integration-intro-copy">Add your LiveKit Room to PeerMetrics to capture what users experienced, label SFU nodes, and debug call issues faster without changing your normal room flow.</p>
             </div>
             <div class="col-12 col-md-6 col-lg-5">
               <div class="integration-hero-panel">
@@ -133,7 +133,7 @@ peerMetrics.addSdkIntegration({
 <div class="card bg-light border-0 mt-4">
   <div class="card-body">
     <span class="title-decorative">Built for production teams</span>
-    <h4 class="h3">See what is happening in your LiveKit rooms</h4>
+    <h4 class="h3">See what happened in every LiveKit room</h4>
     <p>
       Track room quality, label SFU nodes, and give support and engineering the same session evidence when users report call issues.
     </p>
@@ -141,9 +141,9 @@ peerMetrics.addSdkIntegration({
       Start with the open-source SDK or get help rolling it out faster if you want dashboards, ingestion, and instrumentation in place sooner.
     </p>
     <div class="d-flex flex-column flex-sm-row align-items-sm-center flex-wrap">
-      <a href="/demo/" class="btn btn-success mb-2 mr-sm-2" data-ga-cta="livekit_demo">See the demo</a>
+      <a href="/demo/" class="btn btn-success mb-2 mr-sm-2" data-ga-cta="livekit_demo">See the LiveKit demo</a>
       <a href="/#contact" class="btn btn-outline-primary mb-2 mr-sm-2" data-ga-cta="livekit_contact">Talk to us about LiveKit monitoring</a>
-      <a href="https://github.com/peermetrics/sdk-js#livekit" class="btn btn-outline-primary mb-2" target="_blank" rel="noopener noreferrer" data-ga-cta="livekit_docs">View LiveKit SDK docs</a>
+      <a href="https://github.com/peermetrics/sdk-js#livekit" class="btn btn-outline-primary mb-2" target="_blank" rel="noopener noreferrer" data-ga-cta="livekit_docs">View LiveKit integration docs</a>
     </div>
   </div>
 </div>
@@ -157,24 +157,24 @@ peerMetrics.addSdkIntegration({
         <div class="container">
           <div class="row justify-content-center text-center section-intro">
             <div class="col-12 col-md-9 col-lg-8">
-              <h2 class="display-4">Create rock solid products</h2>
+              <h2 class="display-4">Monitor call quality with session-level evidence</h2>
               <span class="lead">
-                The tool that every team needs to build the perfect WebRTC integration
+                Give engineering, support, and operations the facts they need to understand what happened in every LiveKit session.
               </span>
             </div>
           </div>
           <ul class="feature-list feature-list-lg">
             <li class="row justify-content-around align-items-center">
               <div class="col-12 col-md-6 col-lg-5">
-                <img alt="Guess work in product" src="/static/img/homepage/product.jpg" class="img-fluid rounded" />
+                <img alt="Session evidence for LiveKit products" src="/static/img/homepage/product.jpg" class="img-fluid rounded" />
               </div>
               <div class="col-12 col-md-6 col-lg-5">
-                <h5>Don't leave your development to guess work</h5>
+                <h5>Replace guesswork with session evidence</h5>
                 <p>
-                  Crafting the perfect product is a challenge on its own. Adding WebRTC in the mix makes it even harder.
+                  Building a LiveKit product is already difficult. WebRTC adds network, device, and browser behavior that is hard to reason about from user reports alone.
                 </p>
                 <p>
-                  Make sure you and your team have all the data you need to build the best video and audio calling product.
+                  Give your team the call-level evidence they need to improve quality, isolate regressions, and resolve incidents faster.
                 </p>
               </div>
             </li>
@@ -183,9 +183,9 @@ peerMetrics.addSdkIntegration({
                 <img alt="Developer relaxing" src="/static/img/homepage/relax.jpg" class="img-fluid rounded" />
               </div>
               <div class="col-12 col-md-6 col-lg-5 order-lg-1">
-                <h5>Fix problems before they appear</h5>
+                <h5>Spot quality patterns before they become recurring support issues</h5>
                 <p>
-                  Even with a great product, network conditions change. Make sure you have the tools to adapt and resolve issues quickly.
+                  Network conditions, devices, and client behavior change constantly. Monitor the patterns that degrade LiveKit calls before they become recurring support problems or engineering fire drills.
                 </p>
               </div>
             </li>
@@ -194,9 +194,9 @@ peerMetrics.addSdkIntegration({
                 <img alt="Happy support team" src="/static/img/homepage/support.jpg" class="img-fluid rounded" />
               </div>
               <div class="col-12 col-md-6 col-lg-5">
-                <h5>Make sure your support team shines</h5>
+                <h5>Help support and engineering work from the same facts</h5>
                 <p>
-                  Your support team should never guess what happened. Give them the tools to fix problems in real time.
+                  Your support team should not have to guess what happened. Share the same call diagnostics across support, engineering, and operations so handoffs stay fast and credible.
                 </p>
               </div>
             </li>
