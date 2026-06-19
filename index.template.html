@@ -433,37 +433,12 @@
 
     <script>
       window.addEventListener('load', function () {
-        var helpMessage = new URLSearchParams(window.location.search).get('help') || '';
-
-        function applyPrefilledHelpMessage() {
-          if (!helpMessage) {
-            return;
-          }
-
-          var fields = document.querySelectorAll('#hubspot-form textarea, #hubspot-form input[type="text"]');
-
-          fields.forEach(function (field) {
-            var fieldWrapper = field.closest('.hs-form-field');
-            var label = fieldWrapper ? fieldWrapper.querySelector('label') : null;
-            var labelText = label ? label.textContent.toLowerCase() : '';
-            var isHelpField = labelText.includes('how can we help') || labelText.includes('how we can help') || labelText.includes('message');
-
-            if (!isHelpField || field.value.trim()) {
-              return;
-            }
-
-            field.value = helpMessage;
-            field.dispatchEvent(new Event('input', { bubbles: true }));
-            field.dispatchEvent(new Event('change', { bubbles: true }));
-          });
-        }
         if (window.hbspt && window.hbspt.forms) {
           window.hbspt.forms.create({
             portalId: '45353883',
             formId: 'd13525b7-7d18-45e7-81f3-b75d03e31acb',
             region: 'na1',
-            target: '#hubspot-form',
-            onFormReady: applyPrefilledHelpMessage
+            target: '#hubspot-form'
           });
         }
 
