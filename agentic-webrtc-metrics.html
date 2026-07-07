@@ -41,8 +41,17 @@
     <link href="/static/css/overrides.css" rel="stylesheet" type="text/css" media="all" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8G5EJHB7R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S8G5EJHB7R', {
+        anonymize_ip: true
+      });
+    </script>
   </head>
-  <body>
+  <body data-integration="agentic-webrtc-metrics">
     <header class="navbar-container">
       <div class="bg-dark navbar-dark" data-sticky="top">
         <div class="container">
@@ -139,7 +148,7 @@
                   <p>
                     If you want an AI-assisted RTC workflow, tell us what tools your team already uses and what decisions those workflows need to support. We can help scope the metrics, interfaces, and delivery path.
                   </p>
-                  <a href="/?help=I%20need%20help%20designing%20an%20AI-assisted%20metrics%20workflow%20for%20my%20RTC%20product.#contact" class="btn btn-success">Discuss an AI metrics workflow for your RTC product</a>
+                  <a href="/?help=I%20need%20help%20designing%20an%20AI-assisted%20metrics%20workflow%20for%20my%20RTC%20product.#contact" class="btn btn-success" data-ga-cta="agentic_metrics_contact">Discuss an AI metrics workflow for your RTC product</a>
                 </div>
               </div>
             </div>
@@ -172,5 +181,21 @@
         </nav>
       </div>
     </footer>
+    <script>
+      document.querySelectorAll('[data-ga-cta]').forEach(function (element) {
+        element.addEventListener('click', function () {
+          if (typeof window.gtag !== 'function') {
+            return;
+          }
+
+          window.gtag('event', 'cta_click', {
+            cta_id: element.getAttribute('data-ga-cta'),
+            cta_text: element.textContent.trim(),
+            cta_href: element.getAttribute('href') || '',
+            integration_id: document.body.getAttribute('data-integration') || ''
+          });
+        });
+      });
+    </script>
   </body>
 </html>

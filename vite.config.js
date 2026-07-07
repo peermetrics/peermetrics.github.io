@@ -8,6 +8,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         faq: resolve(__dirname, 'faq.html'),
+        howItWorks: resolve(__dirname, 'how-it-works/index.html'),
         useCases: resolve(__dirname, 'use-cases.html'),
         agenticMetrics: resolve(__dirname, 'agentic-webrtc-metrics.html'),
         demo: resolve(__dirname, 'demo/index.html'),
