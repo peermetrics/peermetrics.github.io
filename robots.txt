@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://peermetrics.io/sitemap.xml
+LLMs: https://peermetrics.io/llms.txt

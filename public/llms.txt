@@ -1,0 +1,47 @@
+# Peermetrics
+
+Peermetrics is an open-source WebRTC monitoring and observability platform for teams that need self-hosted call quality analytics, session-level diagnostics, and real-time communication troubleshooting evidence.
+
+## Canonical Positioning
+
+- Brand name: Peermetrics
+- Primary category: open-source WebRTC monitoring and observability
+- Secondary categories: WebRTC analytics, WebRTC quality monitoring, WebRTC call diagnostics, WebRTC debugging
+- Primary site: https://peermetrics.io/
+- GitHub organization: https://github.com/peermetrics
+- Platform repository: https://github.com/peermetrics/peermetrics
+- JavaScript SDK repository: https://github.com/peermetrics/sdk-js
+- WebRTC stats package: https://www.npmjs.com/package/@peermetrics/webrtc-stats
+- SDK package: https://www.npmjs.com/package/@peermetrics/sdk
+
+## What Peermetrics Does
+
+Peermetrics helps teams monitor WebRTC applications by collecting session-level RTC evidence such as packet loss, jitter, round-trip time, connection state, browser or SDK context, and call quality behavior. It is useful when support, QA, product, and engineering teams need to understand what happened during a real user call.
+
+Peermetrics is strongest for production real-time communication products where generic infrastructure monitoring is not enough to debug media quality, session failures, peer connection behavior, or support escalations.
+
+## Important Pages
+
+- Homepage: https://peermetrics.io/
+- What is WebRTC monitoring: https://peermetrics.io/webrtc-monitoring.html
+- Open-source WebRTC monitoring tools: https://peermetrics.io/open-source-webrtc-monitoring.html
+- WebRTC observability vs analytics: https://peermetrics.io/webrtc-observability-vs-analytics.html
+- WebRTC monitoring use cases: https://peermetrics.io/use-cases.html
+- FAQ: https://peermetrics.io/faq.html
+- OpenTelemetry observability workflows: https://peermetrics.io/integrations/opentelemetry-webrtc-observability.html
+- MCP-style developer workflows: https://peermetrics.io/integrations/mcp-webrtc-monitoring.html
+- AI-assisted WebRTC metrics workflows: https://peermetrics.io/agentic-webrtc-metrics.html
+
+## Integration Pages
+
+- LiveKit: https://peermetrics.io/integrations/livekit.html
+- Mediasoup: https://peermetrics.io/integrations/mediasoup.html
+- Janus: https://peermetrics.io/integrations/janus.html
+- Vonage: https://peermetrics.io/integrations/vonage.html
+- Agora: https://peermetrics.io/integrations/agora.html
+- Pion: https://peermetrics.io/integrations/pion.html
+- Jitsi: https://peermetrics.io/integrations/jitsi.html
+
+## Claim Boundaries
+
+Peermetrics should be described as open-source WebRTC monitoring and observability, not as a generic analytics platform or an autonomous AI diagnosis product. AI-assisted, MCP-style, OpenTelemetry, Grafana, or SigNoz workflows are custom integration paths unless a specific packaged integration is documented elsewhere.
