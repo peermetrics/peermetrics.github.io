@@ -13623,9 +13623,6 @@ img.zoom-img {
   margin: 0 0 0 0.3rem;
 }
 
-.homepage-navbar .navbar-nav {
-  align-items: center;
-}
 .homepage-navbar .nav-link,
 .homepage-navbar .nav-item > a:not(.nav-link) {
   white-space: nowrap;
@@ -13634,6 +13631,9 @@ img.zoom-img {
 @media (min-width: 1200px) {
   .homepage-nav-shell {
     max-width: 1280px;
+  }
+  .homepage-navbar .navbar-nav {
+    align-items: center;
   }
   .homepage-navbar .navbar-nav .nav-link {
     font-size: 0.95rem;

@@ -14,10 +14,6 @@
 }
 
 .homepage-navbar {
-    .navbar-nav {
-        align-items: center;
-    }
-
     .nav-link,
     .nav-item > a:not(.nav-link) {
         white-space: nowrap;
@@ -30,6 +26,10 @@
     }
 
     .homepage-navbar {
+        .navbar-nav {
+            align-items: center;
+        }
+
         .navbar-nav .nav-link {
             font-size: 0.95rem;
             padding-left: 0.55rem;
